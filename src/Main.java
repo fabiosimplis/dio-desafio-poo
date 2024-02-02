@@ -1,6 +1,9 @@
+import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
+import javax.sound.midi.Soundbank;
 import java.time.LocalDate;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -24,9 +27,40 @@ public class Main {
         mentoria.setDescricao("Descrição mentoria Java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+//        System.out.println(curso1);
+//        System.out.println(curso2);
+//        System.out.println(mentoria);
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição BootCamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devC = new Dev();
+        devC.setNome("Camila");
+        System.out.println("Nome do Dev: " + devC.getNome());
+        devC.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos inscritos: " + devC.getConteudosInscritos());
+        System.out.println(" - ");
+        devC.progredir();
+        devC.progredir();
+        System.out.println("Conteúdos inscritos: " + devC.getConteudosInscritos());
+        System.out.println("Conteúdos concluidos: " + devC.getConteudosConcluidos());
+        System.out.println("XP: " + devC.calcularTotalXp());
+        System.out.println(" ------- ");
+        Dev devJ = new Dev();
+        devJ.setNome("João");
+        devJ.inscreverBootcamp(bootcamp);
+        System.out.println("Nome do Dev: " + devJ.getNome());
+        System.out.println("Conteúdos inscritos: " + devJ.getConteudosInscritos());
+        System.out.println(" - ");
+        devJ.progredir();
+        System.out.println("Conteúdos inscritos: " + devJ.getConteudosInscritos());
+        System.out.println("Conteúdos conluidos: " + devJ.getConteudosConcluidos());
+        System.out.println("XP: " + devJ.calcularTotalXp());
+
 
     }
 }
